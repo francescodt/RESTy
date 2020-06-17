@@ -1,19 +1,24 @@
 {
   "name": "class-26-solution",
+  "homepage": "https://francescodt.github.io/RESTy/",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "node-sass": "^4.14.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-jsonschema-form": "1.8.1",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gh-pages": "^3.0.0"
+  },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
