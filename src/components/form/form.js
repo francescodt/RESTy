@@ -14,7 +14,7 @@ class Form extends React.Component {
   }
 
   async getDataFromApi() {
-    let result = await fetch(this.state.url);
+    let response = await fetch(this.state.url);
     let body = await response.json();
     let header = [...response.headers.entries()];
     let statusCode = response.status;
