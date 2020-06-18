@@ -13,11 +13,14 @@ class Form extends React.Component {
     };
   }
 
-  async getData() {
+  async getDataFromApi() {
     let result = await fetch(this.state.url);
-    let data = await result.json();
+    let body = await response.json();
+    let header = [...response.headers.entries()];
+    let statusCode = response.status;
+    this.props.onReceiveResults(body,header,statusCode);
   
-  };
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -30,9 +33,7 @@ class Form extends React.Component {
         method: this.state.method,
       };
 
-      this.props.saveData(data);
-
-      this.getData();
+      this.getDataFromApi();
       // Clear old settings
       let url = '';
       let method = '';

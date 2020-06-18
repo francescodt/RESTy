@@ -7,27 +7,35 @@ import './app.scss';
 import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form/form.js';
+import Results from './components/results';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      Count: null,
-      Results: [],
+      Results: {
+        statusCode: null,
+        header: null,
+        body: null,
+      },
     };
   }
 
-  getFormData = data => {
-    this.setState({Results: data});
-    console.log(this.state.Results);
+  setResults = (body, header, statusCode) => {
+    this.setState({Results:{
+      statusCode,
+      header,
+      body,}
+    })
   }
 
   render() {
     return (
       <React.Fragment>
         <Header />
-        <Form saveData = {this.getFormData} />
+        <Form onReceiveResults = {this.setResults} />
+        <Results body={this.state.Results} />
         <Footer />
       </React.Fragment>
     );
