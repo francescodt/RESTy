@@ -13,6 +13,12 @@ class Form extends React.Component {
     };
   }
 
+  async getData() {
+    let result = await fetch(this.state.url);
+    let data = await result.json();
+  
+  };
+
   handleSubmit = e => {
     e.preventDefault();
 
@@ -24,6 +30,9 @@ class Form extends React.Component {
         method: this.state.method,
       };
 
+      this.props.saveData(data);
+
+      this.getData();
       // Clear old settings
       let url = '';
       let method = '';
