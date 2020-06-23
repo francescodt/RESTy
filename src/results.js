@@ -3,7 +3,7 @@ import JSONpretty from 'react-json-pretty';
 
 var JSONPrettyMon = require('react-json-pretty/dist/monikai');
 
-export default function Result(props) {
+export default function Results(props) {
     return (
         <>
         <h1>Results from your API: </h1>
